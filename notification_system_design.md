@@ -448,6 +448,37 @@ npm run preview
 - Complete architecture documentation
 - API contract and priority rules
 - Implementation status and tech stack
+
+---
+
+## Screenshots
+
+### xyz Type 1
+![Screenshot](screenshots/Dashboard.png)
+
+### xyz Type 2
+![Screenshot](screenshots/10%20page.png)
+
+### xyz Type 3
+![Screenshot](screenshots/5%20page.png)
+
+### xyz Type 4
+![Screenshot](screenshots/fetching%20notification.png)
+
+### xyz Type 5
+![Screenshot](screenshots/filtering%20options.png)
+
+### xyz Type 6
+![Screenshot](screenshots/marking%20as%20viewed.png)
+
+### xyz Type 7
+![Screenshot](screenshots/priority%20notification%2010.png)
+
+### xyz Type 8
+![Screenshot](screenshots/priority%20notification%205.png)
+
+### xyz Type 9
+![Screenshot](screenshots/working%20of%20filters.png)
 - Component breakdown and data flow
 - Performance optimizations and error handling
 - Testing verification and git history
