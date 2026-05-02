@@ -206,17 +206,6 @@ Slice (Top N for priority view)
 Render (NotificationCard components)
 ```
 
-## 💡 Recommendations for Stage 1
-
-If implementing the Priority Inbox backend/script:
-
-1. **Language**: Suggest TypeScript/Node.js for consistency with frontend
-2. **Output**: Return paginated top N notifications with priority scores
-3. **Efficiency**: Use min-heap for continuous notification streams
-4. **Testing**: Verify sorting with mixed notification types
-5. **Documentation**: See `notification_system_design.md` for detailed requirements
-
----
 
 ## 📚 Additional Documentation
 
