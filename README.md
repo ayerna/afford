@@ -57,30 +57,9 @@ Within the same priority, newer notifications appear first (latest timestamp fir
 - [See full resolution](screenshots/desktop-all-notifications.png)
 - Shows paginated list with 2-column grid, type filtering, and pagination controls
 
-**Mobile View (Responsive)**
-- [See full resolution](screenshots/mobile-all-notifications.png)
-- Single-column stacked layout, optimized for 390px width (iPhone/Pixel)
-
 **Filter Controls & Statistics**
 - [See full resolution](screenshots/desktop-controls.png)
 - Tab navigation, filter dropdowns, real-time statistics panel
-
-### Detailed Guide
-
-For comprehensive screenshot capture instructions, filtering workflows, and step-by-step demonstrations, see [**screenshots/README.md**](screenshots/README.md).
-
-This includes:
-- How to capture desktop and mobile screenshots
-- Browser DevTools instructions (Chrome, Firefox, Safari)
-- Workflow examples (filtering, pagination, marking as viewed, priority sorting)
-- Video capture recommendations
-
----
-
-### Prerequisites
-
-- Node.js 16+ and npm
-- Valid evaluation service credentials (from Stage 1 registration)
 
 ### Installation
 
@@ -149,12 +128,6 @@ Preview the production build:
 ```bash
 npm run preview
 ```
-
-**Build Output:**
-- Size: ~465 KB (uncompressed), ~144 KB (gzipped)
-- Modules: 927 transformed
-- Time: ~8.5 seconds
-
 ---
 
 ## 📁 Stage 2 Architecture
@@ -242,15 +215,6 @@ If implementing the Priority Inbox backend/script:
 3. **Efficiency**: Use min-heap for continuous notification streams
 4. **Testing**: Verify sorting with mixed notification types
 5. **Documentation**: See `notification_system_design.md` for detailed requirements
-
----
-
-## 🌐 Browser Compatibility
-
-- **Chrome/Edge**: 90+
-- **Firefox**: 88+
-- **Safari**: 14+
-- **Mobile**: iOS Safari 12+, Chrome Mobile 90+
 
 ---
 
