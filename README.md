@@ -6,10 +6,27 @@ A responsive React + TypeScript application for displaying campus notifications 
 
 ## 📋 Project Overview
 
-### Stage 1: Priority Inbox (Backend/Script)
-*Not implemented in this repository*
+### Stage 1: Backend API & Logging Middleware
+**✓ Implemented** - Production-ready Express.js API and centralized logging
 
-The Priority Inbox stage involves fetching notifications from the evaluation API and returning the top N priority notifications based on business rules. Implementation details are in `notification_system_design.md`.
+**[notification_app_be/](notification_app_be/)**:
+- Express.js REST API server on port 3001
+- JWT Bearer token authentication
+- Paginated notifications endpoints with filtering
+- Mock data (12 sample notifications)
+- Error handling and CORS support
+- `GET /notifications` - List all notifications
+- `POST /auth/token` - Generate JWT token
+- Full API documentation in [notification_app_be/README.md](notification_app_be/README.md)
+
+**[logging_middleware/](logging_middleware/)**:
+- Centralized request/response logging library
+- Multi-transport support (Console, File)
+- Color-coded log levels (DEBUG, INFO, WARN, ERROR)
+- Automatic file rotation with backup management
+- Structured log records with metadata
+- Express middleware integration ready
+- Full documentation in [logging_middleware/README.md](logging_middleware/README.md)
 
 ### Stage 2: Frontend (React Application)
 **✓ Implemented** - Interactive web interface for browsing and managing notifications
@@ -77,80 +94,221 @@ This includes:
 
 ---
 
-### Prerequisites
+## 🏗️ Repository Structure
 
-- Node.js 16+ and npm
-- Valid evaluation service credentials (from Stage 1 registration)
+```
+afford/
+├── notification_app_fe/          # Stage 2: Frontend React Application
+│   ├── src/
+│   │   ├── App.tsx              # Main component (443 lines)
+│   │   ├── types.ts             # TypeScript domain model
+│   │   ├── theme.ts             # Material UI customization
+│   │   ├── api/
+│   │   │   └── notifications.ts # API client (bearer token auth)
+│   │   ├── components/
+│   │   │   ├── NotificationCard.tsx
+│   │   │   ├── FeedSkeleton.tsx
+│   │   │   └── EmptyState.tsx
+│   │   └── utils/
+│   │       └── notifications.ts # Priority ranking algorithm
+│   ├── package.json
+│   ├── vite.config.ts
+│   └── README.md
+│
+├── notification_app_be/          # Stage 1: Backend Express API
+│   ├── src/
+│   │   ├── index.ts             # Express server
+│   │   ├── types.ts             # TypeScript interfaces
+│   │   ├── routes/
+│   │   │   ├── notifications.ts # Notification endpoints
+│   │   │   └── auth.ts          # Authentication endpoints
+│   │   ├── middleware/
+│   │   │   ├── auth.ts          # JWT verification
+│   │   │   └── errorHandler.ts  # Error handling
+│   │   └── data/
+│   │       └── mock.ts          # Mock notifications
+│   ├── package.json
+│   ├── tsconfig.json
+│   ├── .env.example
+│   └── README.md
+│
+├── logging_middleware/           # Stage 1: Centralized Logging
+│   ├── src/
+│   │   ├── index.ts             # Logger factory
+│   │   ├── types.ts             # Logger interfaces
+│   │   └── transports/
+│   │       ├── ConsoleTransport.ts
+│   │       └── FileTransport.ts
+│   ├── package.json
+│   ├── tsconfig.json
+│   ├── .env.example
+│   └── README.md
+│
+├── notification_system_design.md # Complete system documentation
+├── README.md                      # This file
+├── BUILD_VERIFICATION.md          # Build metrics and testing
+├── screenshots/                   # Application screenshots
+│   ├── README.md
+│   ├── desktop-all-notifications.png
+│   └── mobile-all-notifications.png
+└── .gitignore
+```
 
-### Installation
+---
+
+## 🚀 Getting Started
+
+### Option 1: Frontend Only (Stage 2)
 
 ```bash
 cd notification_app_fe
 npm install
+npm run dev
+# Opens at http://localhost:3000
 ```
 
-### Configuration
+Requires `.env.local`:
+```
+VITE_NOTIFICATION_API_BASE=http://20.207.122.201/evaluation-service/notifications
+VITE_NOTIFICATION_API_TOKEN=eyJhbGci...
+```
 
-1. Copy the environment template:
+### Option 2: Full Stack (Stage 1 + Stage 2)
+
+**Terminal 1 - Start Backend**:
 ```bash
+cd notification_app_be
+npm install
+npm run dev
+# Server running at http://localhost:3001
+```
+
+**Terminal 2 - Start Frontend**:
+```bash
+cd notification_app_fe
+npm install
 cp .env.example .env.local
+# Edit .env.local to point to http://localhost:3001/notifications
+npm run dev
+# Opens at http://localhost:3000
 ```
 
-2. Register with the evaluation service and obtain your token (if not already done):
+### Option 3: Backend Only (Stage 1)
+
 ```bash
-# Register to get clientID and clientSecret
+cd notification_app_be
+npm install
+npm run dev
+# API available at http://localhost:3001
+```
+
+Example requests:
+```bash
+# Get token
+curl -X POST http://localhost:3001/auth/token \
+  -H "Content-Type: application/json" \
+  -d '{"username": "student"}'
+
+# Fetch notifications
+curl http://localhost:3001/notifications?page=1&limit=10
+```
+
+---
+
+## 📚 Documentation
+
+| Document | Purpose |
+|----------|---------|
+| [notification_system_design.md](notification_system_design.md) | Complete architecture, implementation status, tech stack, data flow |
+| [notification_app_fe/README.md](notification_app_fe/README.md) | Frontend setup, features, API integration (Stage 2) |
+| [notification_app_be/README.md](notification_app_be/README.md) | Backend API setup, endpoints, authentication (Stage 1) |
+| [logging_middleware/README.md](logging_middleware/README.md) | Logging library usage, transports, configuration |
+| [BUILD_VERIFICATION.md](BUILD_VERIFICATION.md) | Build metrics, bundle size, performance results |
+| [screenshots/README.md](screenshots/README.md) | Screenshot guide, capture instructions, demo workflows |
+
+---
+
+## 📋 Prerequisites & Setup
+
+### Prerequisites
+
+- **Node.js 18+** and **npm 9+**
+- For external API: Valid evaluation service credentials
+- Modern browser (Chrome, Firefox, Safari, Edge)
+
+### Frontend Configuration
+
+To use the external evaluation service API:
+
+```bash
+cd notification_app_fe
+
+# Register with evaluation service
 curl -X POST http://20.207.122.201/evaluation-service/register \
   -H "Content-Type: application/json" \
   -d '{
     "email":"your_email",
     "name":"Your Name",
-    "mobileNo":"...",
-    "githubUsername":"...",
-    "rollNo":"...",
-    "accessCode":"..."
+    "rollNo":"YOUR_ROLL_NO",
+    "accessCode":"ACCESS_CODE"
   }'
 
 # Get authorization token
 curl -X POST http://20.207.122.201/evaluation-service/auth \
   -H "Content-Type: application/json" \
   -d '{
-    "email":"...",
-    "name":"...",
-    "rollNo":"...",
-    "accessCode":"...",
-    "clientID":"...",
-    "clientSecret":"..."
+    "email":"your_email",
+    "rollNo":"YOUR_ROLL_NO",
+    "accessCode":"ACCESS_CODE"
   }'
 ```
 
-3. Update `.env.local` with your bearer token:
+Then configure `.env.local`:
+
 ```env
 VITE_NOTIFICATION_API_BASE=http://20.207.122.201/evaluation-service/notifications
-VITE_NOTIFICATION_API_TOKEN=your_bearer_token_here
+VITE_NOTIFICATION_API_TOKEN=your_bearer_token
 ```
 
-### Development
+### Development Workflow
 
-Start the development server on `http://localhost:3000`:
+#### Terminal 1: Backend (Optional)
+
 ```bash
+cd notification_app_be
+npm install
 npm run dev
+# Backend running at http://localhost:3001
 ```
 
-The app will auto-reload on file changes.
+#### Terminal 2: Frontend
 
-### Build
-
-Create a production-optimized bundle:
 ```bash
-npm run build
+cd notification_app_fe
+npm install
+cp .env.example .env.local
+# Edit .env.local with your API configuration
+npm run dev
+# Frontend running at http://localhost:3000
 ```
 
-Preview the production build:
+### Production Build
+
+**Frontend:**
 ```bash
-npm run preview
+cd notification_app_fe
+npm run build    # Outputs to dist/
+npm run preview  # Test production build locally
 ```
 
-**Build Output:**
+**Backend:**
+```bash
+cd notification_app_be
+npm run build    # Outputs to dist/
+npm run start    # Start production server
+```
+
+Build Output (Frontend):
 - Size: ~465 KB (uncompressed), ~144 KB (gzipped)
 - Modules: 927 transformed
 - Time: ~8.5 seconds
