@@ -49,7 +49,33 @@ Within the same priority, newer notifications appear first (latest timestamp fir
 
 ---
 
-## 🚀 Stage 2 Setup & Deployment
+## � Screenshots & Demo
+
+### Quick View
+
+**Desktop View (All Notifications)**
+- [See full resolution](screenshots/desktop-all-notifications.png)
+- Shows paginated list with 2-column grid, type filtering, and pagination controls
+
+**Mobile View (Responsive)**
+- [See full resolution](screenshots/mobile-all-notifications.png)
+- Single-column stacked layout, optimized for 390px width (iPhone/Pixel)
+
+**Filter Controls & Statistics**
+- [See full resolution](screenshots/desktop-controls.png)
+- Tab navigation, filter dropdowns, real-time statistics panel
+
+### Detailed Guide
+
+For comprehensive screenshot capture instructions, filtering workflows, and step-by-step demonstrations, see [**screenshots/README.md**](screenshots/README.md).
+
+This includes:
+- How to capture desktop and mobile screenshots
+- Browser DevTools instructions (Chrome, Firefox, Safari)
+- Workflow examples (filtering, pagination, marking as viewed, priority sorting)
+- Video capture recommendations
+
+---
 
 ### Prerequisites
 
