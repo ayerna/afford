@@ -56,7 +56,7 @@ router.get(
       const paginated = sorted.slice(startIndex, endIndex);
 
       const response: PaginatedResponse<NotificationRecord> = {
-        data: paginated,
+        notifications: paginated,
         page: params.page!,
         limit: params.limit!,
         total: sorted.length,

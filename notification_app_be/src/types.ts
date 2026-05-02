@@ -23,7 +23,7 @@ export interface NotificationRecord {
  * Paginated response wrapper
  */
 export interface PaginatedResponse<T> {
-  data: T[];
+  notifications: T[];
   page: number;
   limit: number;
   total: number;
