@@ -453,31 +453,31 @@ npm run preview
 
 ## Screenshots
 
-### xyz Type 1
+### Main Dashboard
 ![Screenshot](screenshots/Dashboard.png)
 
-### xyz Type 2
+### All Notifications - 10 Per Page
 ![Screenshot](screenshots/10%20page.png)
 
-### xyz Type 3
+### All Notifications - 5 Per Page
 ![Screenshot](screenshots/5%20page.png)
 
-### xyz Type 4
+### Loading State - Fetching Notifications
 ![Screenshot](screenshots/fetching%20notification.png)
 
-### xyz Type 5
+### Filter Controls & Options
 ![Screenshot](screenshots/filtering%20options.png)
 
-### xyz Type 6
+### Marking Notification as Viewed
 ![Screenshot](screenshots/marking%20as%20viewed.png)
 
-### xyz Type 7
+### Priority View - Top 10 Notifications
 ![Screenshot](screenshots/priority%20notification%2010.png)
 
-### xyz Type 8
+### Priority View - Top 5 Notifications
 ![Screenshot](screenshots/priority%20notification%205.png)
 
-### xyz Type 9
+### Filters in Action
 ![Screenshot](screenshots/working%20of%20filters.png)
 - Component breakdown and data flow
 - Performance optimizations and error handling

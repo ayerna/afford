@@ -66,31 +66,36 @@ Within the same priority, newer notifications appear first (latest timestamp fir
 
 ---
 
-## � Screenshots & Demo
+## 📷 Screenshots & Demo
 
-### Quick View
+### Application Views
 
-**Desktop View (All Notifications)**
-- [See full resolution](screenshots/desktop-all-notifications.png)
-- Shows paginated list with 2-column grid, type filtering, and pagination controls
+**Main Dashboard**
+![Dashboard](screenshots/Dashboard.png)
 
-**Mobile View (Responsive)**
-- [See full resolution](screenshots/mobile-all-notifications.png)
-- Single-column stacked layout, optimized for 390px width (iPhone/Pixel)
+**All Notifications - 10 Per Page**
+![10 Per Page](screenshots/10%20page.png)
 
-**Filter Controls & Statistics**
-- [See full resolution](screenshots/desktop-controls.png)
-- Tab navigation, filter dropdowns, real-time statistics panel
+**All Notifications - 5 Per Page**
+![5 Per Page](screenshots/5%20page.png)
 
-### Detailed Guide
+**Loading State - Fetching Notifications**
+![Loading State](screenshots/fetching%20notification.png)
 
-For comprehensive screenshot capture instructions, filtering workflows, and step-by-step demonstrations, see [**screenshots/README.md**](screenshots/README.md).
+**Filter Controls & Options**
+![Filter Controls](screenshots/filtering%20options.png)
 
-This includes:
-- How to capture desktop and mobile screenshots
-- Browser DevTools instructions (Chrome, Firefox, Safari)
-- Workflow examples (filtering, pagination, marking as viewed, priority sorting)
-- Video capture recommendations
+**Marking Notification as Viewed**
+![Mark as Viewed](screenshots/marking%20as%20viewed.png)
+
+**Priority View - Top 10 Notifications**
+![Priority Top 10](screenshots/priority%20notification%2010.png)
+
+**Priority View - Top 5 Notifications**
+![Priority Top 5](screenshots/priority%20notification%205.png)
+
+**Filters in Action**
+![Filters in Action](screenshots/working%20of%20filters.png)
 
 ---
 
