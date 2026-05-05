@@ -1,4 +1,4 @@
-# Campus Notifications System
+# Campus Notifications Systems
 
 A responsive React + TypeScript application for displaying campus notifications with priority ranking and filtering. This repository contains the **Stage 2 Frontend Implementation** of the Campus Notifications microservice.
 
